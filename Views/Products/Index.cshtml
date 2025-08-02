@@ -1,0 +1,130 @@
+﻿@model ProductManage.Models.ViewModels.ProductListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>產品清單</h1>
+    <a asp-action="Create" class="btn btn-primary">創建新產品</a>
+</div>
+<hr />
+
+<form asp-action="Index" method="get">
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="SelectedCategoryId">分類篩選:</label>
+                <select asp-for="SelectedCategoryId" class="form-control"
+                        asp-items="@Model.Categories">
+                    <option value="">-- 所有分類 --</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="SearchName">搜尋產品:</label>
+                <input type="text" asp-for="SearchName" class="form-control" placeholder="輸入產品名稱" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="SortOrder">排序方式:</label>
+                <select name="sortOrder" class="form-control">
+                    <option value="">價格: 預設</option>
+                    <option value="price_asc" selected="@(ViewData["CurrentSort"]?.ToString() == "price_asc")">價格: 由低到高</option>
+                    <option value="price_desc" selected="@(ViewData["CurrentSort"]?.ToString() == "price_desc")">價格: 由高到低</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-end">
+            <button type="submit" class="btn btn-secondary me-2">搜尋</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">清除篩選</a>
+        </div>
+    </div>
+</form>
+<div class="mb-3">
+    <p>目前共有 <b>@Model.TotalItems</b> 筆資料</p>
+    @if (!string.IsNullOrEmpty(Model.SearchName))
+    {
+        <p>搜尋關鍵字：<b>「@Model.SearchName」</b></p>
+    }
+    @if (Model.SelectedCategoryId.HasValue && Model.SelectedCategoryId.Value > 0)
+    {
+        var categoryName = Model.Categories.FirstOrDefault(c => c.Value == Model.SelectedCategoryId.Value.ToString())?.Text;
+        <p>分類篩選：<b>@categoryName</b></p>
+    }
+</div>
+
+<div class="row">
+    @foreach (var item in Model.Products)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                {
+                    <img src="@item.ImageUrl" alt="商品圖片" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                }
+                else
+                {
+                    <div class="d-flex align-items-center justify-content-center bg-light text-muted" style="height: 200px;">
+                        <span>無圖片</span>
+                    </div>
+                }
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="card-text text-muted mb-1">
+                        分類: @Html.DisplayFor(modelItem => item.CategoryName)
+                    </p>
+                    <p class="card-text text-success fw-bold">
+                        價格: @Html.DisplayFor(modelItem => item.Price)
+                    </p>
+                    <div class="mt-auto">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info w-100 mb-2">詳細資料</a>
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary flex-fill me-1">編輯</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger flex-fill">刪除</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@{
+    var prevDisabled = Model.PageNumber <= 1 ? "disabled" : "";
+    var nextDisabled = Model.PageNumber >= Model.TotalPages ? "disabled" : "";
+}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @prevDisabled">
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageNumber - 1)"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-selectedCategoryId="@Model.SelectedCategoryId"
+               asp-route-searchName="@Model.SearchName"
+               class="page-link">上一頁</a>
+        </li>
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a asp-action="Index"
+                   asp-route-pageNumber="@i"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-selectedCategoryId="@Model.SelectedCategoryId"
+                   asp-route-searchName="@Model.SearchName"
+                   class="page-link">@i</a>
+            </li>
+        }
+        <li class="page-item @nextDisabled">
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageNumber + 1)"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-selectedCategoryId="@Model.SelectedCategoryId"
+               asp-route-searchName="@Model.SearchName"
+               class="page-link">下一頁</a>
+        </li>
+    </ul>
+</nav>
