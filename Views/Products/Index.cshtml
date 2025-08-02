@@ -63,7 +63,10 @@
             <div class="card h-100 shadow-sm">
                 @if (!string.IsNullOrEmpty(item.ImageUrl))
                 {
-                    <img src="@item.ImageUrl" alt="商品圖片" class="card-img-top" style="height: 200px; object-fit: cover;" />
+                    
+                    <div class="d-flex align-items-center justify-content-center bg-light" style="height: 200px;">
+                        <img src="@item.ImageUrl" alt="商品圖片" class="img-fluid" style="max-height: 100%; object-fit: contain;" />
+                    </div>
                 }
                 else
                 {

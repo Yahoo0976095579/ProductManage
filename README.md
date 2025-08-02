@@ -41,27 +41,27 @@
 
 <h3 align="center">產品列表</h3>
 <p align="center">
-  <img src="assets/images/index_preview.png" alt="產品列表頁面預覽" width="800">
+  <img src="assets/images/readme/index.png" alt="產品列表頁面預覽" width="800">
   <br>
-  <em>優化的產品列表頁面，使用卡片式佈局展示產品資訊。</em>
+  <em>產品列表頁面，使用卡片式佈局展示產品資訊。</em>
 </p>
 
 <br>
 
 <h3 align="center">建立新產品</h3>
 <p align="center">
-  <img src="assets/images/create_preview.png" alt="創建產品頁面預覽" width="800">
+  <img src="assets/images/readme/create.png" alt="創建產品頁面預覽" width="800">
   <br>
-  <em>簡潔清晰的表單，方便使用者快速新增產品資料。</em>
+  <em>新增產品資料。</em>
 </p>
 
 <br>
 
 <h3 align="center">產品詳細資料</h3>
 <p align="center">
-  <img src="assets/images/details_preview.png" alt="產品詳細資料頁面預覽" width="800">
+  <img src="assets/images/readme/details.png" alt="產品詳細資料頁面預覽" width="800">
   <br>
-  <em>美觀的詳細資料頁面，圖片與文字資訊並排呈現。</em>
+  <em>詳細資料頁面，圖片與文字資訊並排呈現。</em>
 </p>
 
 ---
