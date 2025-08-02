@@ -68,14 +68,35 @@
 
 ##  資料夾架構
 
+.
+├── Controllers/
+│   └── ProductController.cs  # 處理產品相關的 HTTP 請求
 │
-├── Controllers/ → 控制器（ProductController）
-├── Models/ → 資料模型（Product.cs、Category.cs）
-├── ViewModels/ → 專屬頁面資料傳輸模型
-├── Views/ → Razor 視圖（Create, Edit, Index, Details）
-├── wwwroot/ → 靜態資源（CSS、圖片）
-├── Data/ → DbContext 與資料庫初始化
-└── Program.cs → 專案進入點與服務註冊
+├── Data/
+│   └── ApplicationDbContext.cs # DbContext 設定與資料庫初始化
+│
+├── Models/
+│   ├── Category.cs           # 定義產品分類資料模型
+│   └── Product.cs            # 定義產品資料模型
+│
+├── ViewModels/
+│   └── ProductViewModel.cs   # 專門用於頁面資料傳輸的 ViewModel
+│
+├── Views/
+│   ├── Products/
+│   │   ├── Create.cshtml     # 創建產品的頁面
+│   │   ├── Delete.cshtml     # 刪除產品的確認頁面
+│   │   ├── Details.cshtml    # 產品詳細資料頁面
+│   │   ├── Edit.cshtml       # 編輯產品的頁面
+│   │   └── Index.cshtml      # 產品列表頁面
+│   └── Shared/
+│
+├── wwwroot/
+│   ├── css/
+│   ├── images/               # 儲存上傳的產品圖片
+│   └── lib/                  # 靜態資源，如 Bootstrap
+│
+└── Program.cs                  # 專案進入點與服務註冊
 
 ---
 
