@@ -80,7 +80,7 @@
 
 <h3 align="center">產品排序</h3>
 <p align="center">
-  <img src="wwwroot/images/readme/sort.png" alt="商品排序" width="600">
+  <img src="wwwroot/images/readme/Sort.png" alt="商品排序" width="600">
 </p>
 
 ---
