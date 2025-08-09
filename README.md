@@ -64,6 +64,8 @@
   <em>詳細資料頁面，圖片與文字資訊並排呈現。</em>
 </p>
 
+<br>
+
 <h3 align="center">Update 更新產品</h3>
 <p align="center">
   <img src="wwwroot/images/readme/update.png" alt="更新產品頁面預覽" width="600">
@@ -71,12 +73,16 @@
   <em>更新產品頁面預覽。</em>
 </p>
 
+<br>
+
 <h3 align="center">Delete 刪除產品</h3>
 <p align="center">
   <img src="wwwroot/images/readme/delete.png" alt="刪除產品頁面預覽" width="600">
   <br>
   <em>刪除產品頁面預覽。</em>
 </p>
+
+<br>
 
 <h3 align="center">產品排序</h3>
 <p align="center">
