@@ -48,7 +48,7 @@
 
 <br>
 
-<h3 align="center">建立新產品</h3>
+<h3 align="center">Create 建立新產品</h3>
 <p align="center">
   <img src="wwwroot/images/readme/create.png" alt="創建產品頁面預覽" width="600">
   <br>
@@ -57,11 +57,30 @@
 
 <br>
 
-<h3 align="center">產品詳細資料</h3>
+<h3 align="center">Read 產品詳細資料</h3>
 <p align="center">
   <img src="wwwroot/images/readme/details.png" alt="產品詳細資料頁面預覽" width="600">
   <br>
   <em>詳細資料頁面，圖片與文字資訊並排呈現。</em>
+</p>
+
+<h3 align="center">Update 更新產品</h3>
+<p align="center">
+  <img src="wwwroot/images/readme/update.png" alt="更新產品頁面預覽" width="600">
+  <br>
+  <em>更新產品頁面預覽。</em>
+</p>
+
+<h3 align="center">Delete 刪除產品</h3>
+<p align="center">
+  <img src="wwwroot/images/readme/delete.png" alt="刪除產品頁面預覽" width="600">
+  <br>
+  <em>刪除產品頁面預覽。</em>
+</p>
+
+<h3 align="center">產品排序</h3>
+<p align="center">
+  <img src="wwwroot/images/readme/sort.png" alt="商品排序" width="600">
 </p>
 
 ---
